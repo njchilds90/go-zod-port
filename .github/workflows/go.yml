@@ -1,0 +1,20 @@
+# This workflow will install Go, cache Go modules, and run go tests
+name: Go
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.19'
+    - name: Get dependencies
+      run: go mod download
+    - name: Test with race detection
+      run: go test -race ./...
+    - name: Lint with golangci-lint
+      uses: golangci/golangci-lint-action@v3
+      with:
+        version: '1.52.2'
