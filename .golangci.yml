@@ -1,0 +1,71 @@
+linters:
+  disable:
+    - lll
+  enable:
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    - gofmt
+    - goimports
+    - misspell
+    - dupl
+    - maligned
+    - godot
+    - goconst
+    - gocyclo
+    - gocritic
+    - gas
+    - interfacer
+    - funcname
+    - gochecknoinits
+    - gomnd
+    - scopelint
+    - exhaustruct
+    - nestif
+    - prealloc
+    - errorlint
+
+issues:
+  exclude-regexp:
+    -\.git/.*
+
+run:
+  timeout: 5m
+
+output:
+  format: colored-line-number
+  print-issued-lines: true
+  print-linter-name: false
+
+# Enable the 'experimental' linters.
+# They provide more advanced checks, but may have false positives.
+experimental:
+  enable:
+    - nilnil
+    - nakedret
+
+# If you want to change the default --fast value which is 'true' when linters are 'slow'.
+# To run all the linters (and have a much slower build), set this to 'false'.
+# The 'slow' linters are:
+# - dupl
+# - gocyclo
+# - gochecknoinits
+# - staticcheck
+# - varcheck
+# - structcheck
+# - typecheck
+# - funlen
+# - methodset
+# - errcheck
+# - goconst
+# - gocritic
+# - godot
+# - gofmt
+# - goimports
+# - scopelint
+# - gomnd
+speed:
+#  fast: false
